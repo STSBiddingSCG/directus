@@ -1,0 +1,23 @@
+version: '3'
+services:
+  directus:
+    image: directus/directus:latest
+    ports:
+      - 8055:8055
+    volumes:
+      - ./database:/directus/database
+      - ./uploads:/directus/uploads
+    environment:
+      KEY: 'this-is-my-random-key123456'
+      SECRET: 'this-is-my-random-key123456'
+      ADMIN_EMAIL: 'admin@example.com'
+      ADMIN_PASSWORD: 'd1r3ctu5'
+      # DB_CLIENT: 'sqlite3'
+      # DB_FILENAME: '/directus/database/data.db'
+      DB_CLIENT: "mssql"
+      DB_HOST: "34.124.177.66"
+      DB_PORT: 1433
+      DB_DATABASE: "stsbidding_test"
+      DB_USER: "sa"
+      DB_PASSWORD: "myPassword123"
+      WEBSOCKETS_ENABLED: true
